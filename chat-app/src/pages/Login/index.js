@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { loginRoute } from "../../utils/APIRoutes";
 function Login() {
   const navigate = useNavigate();
@@ -21,6 +21,13 @@ function Login() {
     username: "",
     password: "",
   });
+  useEffect(() => {
+    if (localStorage.getItem("chat-app-user")) {
+      navigate("/");
+    }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   const [inputType, setInputType] = useState("password");
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -70,7 +77,7 @@ function Login() {
               name="username"
               onChange={(e) => handleChange(e)}
             />
-            
+
             <div className="passwordDiv">
               <input
                 className="passwordField"
@@ -97,7 +104,7 @@ function Login() {
                 </button>
               )}
             </div>
-            
+
             <button className="glow-on-hover" type="submit">
               User Login
             </button>

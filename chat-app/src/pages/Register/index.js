@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import {useNavigate}from "react-router-dom"
 import { toast, ToastContainer } from "react-toastify";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { registerRoute } from "../../utils/APIRoutes";
 function Register() {
 const navigate= useNavigate()
@@ -23,6 +23,12 @@ const navigate= useNavigate()
     password: "",
     confirmPassword: "",
   });
+  useEffect(() => {
+    if (localStorage.getItem("chat-app-user")) {
+      navigate("/");
+    }
+     // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const [inputType, setInputType] = useState("password");
   const handleSubmit = async (event) => {
     event.preventDefault();

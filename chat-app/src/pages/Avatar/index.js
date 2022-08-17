@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 import AvatarStyle from "./style";
 import { Buffer } from "buffer";
+import { SkeletonLoader } from "../../components/Skeleton/Index";
 
 function Avatar() {
   const api = "https://api.multiavatar.com/45678945";
@@ -20,12 +21,16 @@ function Avatar() {
     theme: "dark",
   };
 
-  const setProfilepic = async () => {};
+  const setProfilepic = async () => {
+    if (seletedAvatar === undefined) {
+      toast.error("please select the avatar", toastOptions);
+    }
+  };
   const loadProfilePic = () => {
     const data = [];
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 5; i++) {
       const request = axios.get(
-        `${api}/${Math.round(Math.random() * 1000)}?apikey=MsvGH8gm36Pdl7`
+        `${api}/${Math.round(Math.random() * 1000)}?apikey=MsvGH8gm36Pdl7` 
       );
       data.push(request);
     }
@@ -44,6 +49,10 @@ function Avatar() {
   }, []);
   return (
     <>
+    {
+      isLoading?<AvatarStyle>
+    <SkeletonLoader/>
+      </AvatarStyle>:(
       <AvatarStyle>
         <div className="title">
           <h1>Select Your Profile Pic</h1>
@@ -68,7 +77,8 @@ function Avatar() {
             );
           })}
         </div>
-        <div className="profile-button">
+        
+    <div className="profile-button">
           <button className="glow-on-hover" onClick={setProfilepic}>
             Set as Profile pic
           </button>
@@ -77,6 +87,8 @@ function Avatar() {
           </button>
         </div>
       </AvatarStyle>
+      )
+    } 
       <ToastContainer />
     </>
   );

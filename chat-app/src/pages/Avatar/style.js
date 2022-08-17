@@ -6,9 +6,8 @@ const AvatarStyle = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 3rem;
-  background-color: #0f0f30;
   height: 100vh;
-  width: 100vw;
+  background-image: linear-gradient(to right,#3a3838 0%,#bd4a4a00 100%);  width: 100vw;
 
   .loader {
     max-inline-size: 100%;
@@ -123,7 +122,7 @@ const AvatarStyle = styled.div`
       background-position: 0 0;
     }
   }
-  .profile-button{
+  .profile-button {
     width: 270px;
     display: flex;
     justify-content: space-between;

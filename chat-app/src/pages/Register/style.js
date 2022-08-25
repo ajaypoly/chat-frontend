@@ -6,7 +6,8 @@ const FormContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: linear-gradient(to right, #3a3838 0%, #bd4a4a00 100%);
+  background-image: linear-gradient(to right, #434343 0%, black 100%);
+
   .brands {
     margin: 10px;
     padding: 40px;

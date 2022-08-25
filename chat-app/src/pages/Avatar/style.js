@@ -6,8 +6,9 @@ const AvatarStyle = styled.div`
   align-items: center;
   flex-direction: column;
   gap: 3rem;
+  background-image: linear-gradient(to right, #9b9b9b 0%, #000000eb 95%);
   height: 100vh;
-  background-image: linear-gradient(to right,#3a3838 0%,#bd4a4a00 100%);  width: 100vw;
+  width: 100vw;
 
   .loader {
     max-inline-size: 100%;

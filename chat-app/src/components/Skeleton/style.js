@@ -4,8 +4,8 @@ export const SkeletonStyle = styled.div`
   .Skeleton-style {
     margin: 4%;
     border-radius: 50px;
-    width: 250px;
-    height: 180px;
+    width: 180px;
+    height: 120px;
   }
   @keyframes animation {
     0% {

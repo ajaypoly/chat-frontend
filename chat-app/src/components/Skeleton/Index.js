@@ -23,6 +23,10 @@ export const SkeletonLoader =()=> {
                   variant="rect"
                  
                 />
+                <Skeleton className="Skeleton-style"
+                  variant="rect"
+                 
+                />
               </div>
               </SkeletonStyle>
      

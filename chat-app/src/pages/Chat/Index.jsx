@@ -10,6 +10,7 @@ function Chat() {
 
   const [contacts, setContacts] = useState([]);
   const [currentUser, setCurrentUser] = useState(undefined);
+  const [currentchat, setCurrentChat] = useState();
 
   useEffect(() => {
     (async () => {
@@ -29,12 +30,15 @@ function Chat() {
         }else{navigate("/avatar ")}
       }
     })()
-  }, []);
+  }, [currentUser]);
+  const handleChatChange=(chat)=>{
+    setCurrentChat(chat)
+  }
   return (
     <>
       <ChatContainer>
         <div className="chat-box">
-          <Contacts contacts={contacts} currentUser={currentUser}/>
+          <Contacts contacts={contacts} currentUser={currentUser} changeChat={handleChatChange}/>
         </div>
       </ChatContainer>
     </>

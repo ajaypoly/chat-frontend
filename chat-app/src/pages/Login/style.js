@@ -1,76 +1,6 @@
 import styled from "styled-components";
 
 const FormContainer = styled.div`
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: linear-gradient(to right, #434343 0%, black 100%);
-
-  .brands {
-    margin: 10px;
-    padding: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    flex-direction: column;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-
-    h1,
-    span {
-      color: #030e12;
-      text-transform: uppercase;
-    }
-  }
-  .robo {
-    height: 5rem;
-  }
-  .inputField {
-    font-family: "Josefin Sans", sans-serif;
-    padding: 10px;
-    color: #030e12;
-    background: #00000000;
-    border: 1px solid #030e12;
-    border-radius: 8px;
-    width: 208px;
-  }
-  .passwordDiv {
-    font-family: "Josefin Sans", sans-serif;
-    color: #030e12;
-    background: #00000000;
-    border: 1px solid #030e12;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    padding: 0 5px;
-  }
-  .passwordField {
-    color: #030e12;
-    padding: 10px;
-    background: #00000000;
-    border: none;
-    outline: none;
-    width: 100%;
-    height: 100%;
-  }
-  .passwordField::placeholder {
-    color: #030e1280;
-  }
-  .showHideBtn {
-    background: #00000000;
-    border: none;
-    outline: none;
-  }
-  .inputField::placeholder {
-    color: #030e1280;
-  }
   .glow-on-hover {
     padding: 10px 20px;
     border: none;
@@ -87,19 +17,11 @@ const FormContainer = styled.div`
     content: "";
     background: linear-gradient(
       45deg,
-      #ff0000,
-      #ff7300,
-      #fffb00,
-      #48ff00,
       #00ffd5,
-      #002bff,
-      #7a00ff,
       #ff00c8,
       #ff0000,
       #ffa07a,
       #ffff00,
-      #808000,
-      #008000,
       #008080
     );
     position: absolute;

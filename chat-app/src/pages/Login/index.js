@@ -25,10 +25,10 @@ function Login() {
     if (localStorage.getItem("chat-app-user")) {
       navigate("/");
     }
-     // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const [inputType, setInputType] = useState("password");
+  const [isPasswordHidden, setPasswordHidden] = useState(true);
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (handleValidation()) {
@@ -65,51 +65,47 @@ function Login() {
   };
   return (
     <>
-      <FormContainer>
+      <FormContainer className="w-screen h-screen flex justify-center items-center bg-gradient-to-r from-slate-600 to-black ">
         <form onSubmit={(event) => handleSubmit(event)}>
-          <div className="brands">
-            <img className="robo" src={logo} alt="come on" />
-            <h1>Come On</h1>
+          <div className="border border-[#ffffff4d]  rounded-3xl flex flex-col items-center gap-3 p-9 bg-white/20">
+            <img className="h-20 " src={logo} alt="come on" />
+            <h1 className="text-black py-5 hover:text-[#b0b0b04d] hover:scale-150 transition-all duration-1000">
+              Come On
+            </h1>
             <input
-              className="inputField"
+              className="border border-black rounded-md p-2 pl-3 bg-transparent w-full placeholder:text-gray-800 outline-none"
               type="text"
               placeholder="Username"
               name="username"
               onChange={(e) => handleChange(e)}
             />
 
-            <div className="passwordDiv">
+            <div className="relative w-full">
               <input
-                className="passwordField"
-                type={inputType}
+                className="border border-black rounded-md p-2 pl-3 bg-transparent w-full placeholder:text-gray-800 outline-none"
+                type={isPasswordHidden ? "password" : "text"}
                 placeholder="Password"
                 name="password"
                 onChange={(e) => handleChange(e)}
               />
-              {inputType === "password" ? (
-                <button
-                  class="showHideBtn"
-                  type="button"
-                  onClick={() => setInputType("text")}
-                >
-                  <i class="fa-solid fa-eye-slash"></i>
-                </button>
-              ) : (
-                <button
-                  className="showHideBtn"
-                  type="button"
-                  onClick={() => setInputType("password")}
-                >
-                  <i class="fa-solid fa-eye"></i>
-                </button>
-              )}
+
+              <button
+                className="showHideBtn absolute right-2 top-2"
+                type="button"
+                onClick={() => setPasswordHidden(!isPasswordHidden)}
+              >
+                <i
+                  class={`fa-solid fa-eye${isPasswordHidden ? "-slash" : ""}`}
+                ></i>
+              </button>
             </div>
 
-            <button className="glow-on-hover" type="submit">
+            <button className="glow-on-hover mt-5" type="submit">
               User Login
             </button>
             <span>
-              Don't have an account?<a href="/register">Register</a>
+              Don't have an account?
+              <a className="text-violet-200 ml-2" href="/register">Register</a>
             </span>
           </div>
         </form>

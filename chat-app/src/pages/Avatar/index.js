@@ -22,11 +22,11 @@ function Avatar() {
     theme: "dark",
   };
 
-  useEffect(()=>{
-    if(!localStorage.getItem("chat-app-user")){
-      navigate("/login")
+  useEffect(() => {
+    if (!localStorage.getItem("chat-app-user")) {
+      navigate("/login");
     }
-  },[])
+  }, []);
 
   const setProfilepic = async () => {
     if (selectedAvatar === undefined) {
@@ -72,25 +72,28 @@ function Avatar() {
   return (
     <>
       {isLoading ? (
-        <AvatarStyle>
+        <AvatarStyle className="flex justify-center items-center flex-col gap-12  bg-gradient-to-r from-slate-600 to-black w-screen h-screen">
           <SkeletonLoader />
         </AvatarStyle>
       ) : (
-        <AvatarStyle>
-          <div className="title">
+        <AvatarStyle className="flex justify-center items-center flex-col gap-12  bg-gradient-to-r from-slate-600 to-black w-screen h-screen">
+          <div className="decoration-zinc-900 text-2xl ">
             <h1>Select Your Profile Pic</h1>
           </div>
 
-          <div className="avatars">
+          <div className="gap-8 border-transparent rounded-3xl p-2 flex justify-center items-center ">
             {avatars.map((avatar, index) => {
               return (
                 <div
                   key={index}
-                  className={`avatar ${
-                    selectedAvatar === index ? "selected" : ""
+                  className={`avatar ease-in-out duration-500 hover:scale-125 rounded-full border-4 border-transparent ${
+                    selectedAvatar === index
+                      ? " border-[rgb(21,255,0)]  "
+                      : ""
                   }`}
                 >
                   <img
+                    className="h-28"
                     src={`data:image/svg+xml;base64,${avatar}`}
                     alt="avatar"
                     key={avatar}
@@ -100,11 +103,11 @@ function Avatar() {
               );
             })}
           </div>
-          <div className="profile-button">
+          <div className="w-80 flex justify-between">
             <button className="glow-on-hover" onClick={setProfilepic}>
               Set as Profile pic
             </button>
-            <button className="glow-on-hover" onClick={loadProfilePic}>
+            <button className="glow-on-hover " onClick={loadProfilePic}>
               Reload Pic
             </button>
           </div>

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Contacts from "../../components/Contact";
 import { alluserRoute } from "../../utils/APIRoutes";
-import ChatContainer from "./style";
+
 
 function Chat() {
   const navigate = useNavigate();
@@ -36,11 +36,11 @@ function Chat() {
   }
   return (
     <>
-      <ChatContainer>
-        <div className="chat-box">
+      <div className="w-screen h-screen flex justify-center items-center bg-gradient-to-r from-black to-slate-600">
+        <div className="h-75 w-75">
           <Contacts contacts={contacts} currentUser={currentUser} changeChat={handleChatChange}/>
         </div>
-      </ChatContainer>
+      </div>
     </>
   );
 }

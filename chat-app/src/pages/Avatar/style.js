@@ -1,48 +1,6 @@
 import styled from "styled-components";
 
 const AvatarStyle = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 3rem;
-  background-image: linear-gradient(to right, #9b9b9b 0%, #000000eb 95%);
-  height: 100vh;
-  width: 100vw;
-
-  .loader {
-    max-inline-size: 100%;
-  }
-  .title {
-    h1 {
-      color: white;
-    }
-  }
-  .avatars {
-    gap: 2rem;
-    display: flex;
-
-    .avatar {
-      border: 0.4rem solid transparent;
-      padding: 0.4rem;
-      border-radius: 5rem;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      img {
-        height: 7rem;
-        transition: transform 2s ease;
-      }
-      img:hover {
-        transform: scale(1.15);
-        transition: 1.5s;
-      }
-    }
-    .selected {
-      border: 0.4rem solid red;
-    }
-  }
   .glow-on-hover {
     padding: 10px 20px;
     border: none;
@@ -122,11 +80,6 @@ const AvatarStyle = styled.div`
     100% {
       background-position: 0 0;
     }
-  }
-  .profile-button {
-    width: 270px;
-    display: flex;
-    justify-content: space-between;
   }
 `;
 

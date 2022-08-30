@@ -19,8 +19,8 @@ function Contacts({ contacts, currentUser, changeChat }) {
   return (
     <>
       {currentuserImage && currentuserName && (
-        <div className="flex flex-col h-full overflow-hidden bg-gradient-to-r from-slate-600 to-black">
-          <div className="flex h-1/6 justify-center items-center gap-4  ">
+        <div className="w-72 flex flex-col h-full overflow-hidden border rounded-lg border-none bg-gradient-to-r from-slate-600 to-black">
+          <div className="flex h-1/6 justify-center items-center gap-8  ">
             <img className="h-28" src={logo} />
             <h1 className="text-black py-5 text-lg hover:text-[#b0b0b04d] hover:scale-150 transition-all duration-1000">
               Come On

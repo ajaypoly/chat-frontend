@@ -4,10 +4,16 @@ module.exports = {
   theme: {
     extend: {
       height:{
-        '75':'75vh'
+        '75':'85vh'
       },
       width:{
-        '75':'75vh'
+        '75':'85vh'
+      },
+      minWidth: {
+        '35': '35%',
+      },
+      top:{
+        '-350px':'-350px'
       }
     },
   },

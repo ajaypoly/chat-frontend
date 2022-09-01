@@ -1,14 +1,15 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { io } from "socket.io-client";
 import ChatContainer from "../../components/ChatContaier";
 import Contacts from "../../components/Contact";
 import Welcome from "../../components/Welcome";
-import { alluserRoute } from "../../utils/APIRoutes";
+import { alluserRoute, host } from "../../utils/APIRoutes";
 
 function Chat() {
   const navigate = useNavigate();
-
+  const socket = useRef();
   const [contacts, setContacts] = useState([]);
   const [currentUser, setCurrentUser] = useState(undefined);
   const [currentchat, setCurrentChat] = useState();
@@ -23,7 +24,16 @@ function Chat() {
         setisLoader(true);
       }
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    if (currentUser) {
+      socket.current = io(host);
+      socket.current.emit("add-user", currentUser._id);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentUser]);
   useEffect(() => {
     (async () => {
       if (currentUser) {
@@ -35,6 +45,7 @@ function Chat() {
         }
       }
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser]);
   const handleChatChange = (chat) => {
     setCurrentChat(chat);
@@ -51,7 +62,11 @@ function Chat() {
           {isloader && currentchat === undefined ? (
             <Welcome currentUser={currentUser} />
           ) : (
-            <ChatContainer currentchat={currentchat} currentUser={currentUser} />
+            <ChatContainer
+              currentchat={currentchat}
+              currentUser={currentUser}
+              socket={socket}
+            />
           )}
         </div>
       </div>

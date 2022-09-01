@@ -9,7 +9,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route element={<Register />} path="/register" />
+        <Route element={<Register />} path="/" />
         <Route element={<Login />} path="/login" />
         <Route element={<Avatar />} path="/avatar" />
         <Route element={<Chat />} path="/chat" />

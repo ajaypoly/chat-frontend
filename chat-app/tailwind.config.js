@@ -12,6 +12,9 @@ module.exports = {
       minWidth: {
         '35': '35%',
       },
+      maxWidth: {
+        '40': '40%',
+      },
       top:{
         '-350px':'-350px'
       }

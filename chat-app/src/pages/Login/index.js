@@ -23,7 +23,7 @@ function Login() {
   });
   useEffect(() => {
     if (localStorage.getItem("chat-app-user")) {
-      navigate("/");
+      navigate("/chat");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

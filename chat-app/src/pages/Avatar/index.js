@@ -24,20 +24,19 @@ function Avatar() {
 
   useEffect(() => {
     if (!localStorage.getItem("chat-app-user")) {
-      navigate("/login");
+      navigate("/chat");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const setProfilepic = async () => {
     if (selectedAvatar === undefined) {
       toast.error("please select the avatar", toastOptions);
     } else {
-      console.log(avatars[selectedAvatar]);
       const user = await JSON.parse(localStorage.getItem("chat-app-user"));
       const { data } = await axios.post(`${avatarRoute}/${user._id}`, {
         image: avatars[selectedAvatar],
       });
-      console.log(data);
       if (data.isSet) {
         user.isAvatarImageSet = true;
         user.avatarImage = data.image;
@@ -87,9 +86,7 @@ function Avatar() {
                 <div
                   key={index}
                   className={`avatar ease-in-out duration-500 hover:scale-125 rounded-full border-4 border-transparent ${
-                    selectedAvatar === index
-                      ? " border-[rgb(21,255,0)]  "
-                      : ""
+                    selectedAvatar === index ? " border-[rgb(21,255,0)]  " : ""
                   }`}
                 >
                   <img

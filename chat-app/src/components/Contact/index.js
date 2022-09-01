@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "../../assets/chatbot-icon.svg";
-
+import LogOut from "../LogOut/Index";
 function Contacts({ contacts, currentUser, changeChat }) {
   const [currentuserName, setCurrentuserName] = useState(undefined);
   const [currentuserImage, setCurrentuserImage] = useState(undefined);
@@ -11,6 +11,7 @@ function Contacts({ contacts, currentUser, changeChat }) {
       setCurrentuserImage(currentUser.avatarImage);
       setCurrentuserName(currentUser.username);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentUser]);
   const changeCurrentChat = (index, contact) => {
     setCurrentSelected(index);
@@ -21,7 +22,7 @@ function Contacts({ contacts, currentUser, changeChat }) {
       {currentuserImage && currentuserName && (
         <div className="w-72 flex flex-col h-full overflow-hidden border rounded-lg border-none bg-gradient-to-r from-slate-600 to-black">
           <div className="flex h-1/6 justify-center items-center gap-8  ">
-            <img className="h-28" src={logo} />
+            <img className="h-28" src={logo} alt="logo" />
             <h1 className="text-black py-5 text-lg hover:text-[#b0b0b04d] hover:scale-150 transition-all duration-1000">
               Come On
             </h1>
@@ -66,6 +67,7 @@ function Contacts({ contacts, currentUser, changeChat }) {
               </h2>
             </div>
           </div>
+          <LogOut />
         </div>
       )}
     </>
